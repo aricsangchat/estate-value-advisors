@@ -42,7 +42,7 @@ export default function GoldBuyerStLouisPage() {
 
           <div className="overflow-hidden rounded-[32px] bg-white shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1610375461369-d613b56452ea?q=80&w=1400&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1400&auto=format&fit=crop"
               alt="Gold jewelry"
               className="h-[680px] w-full object-cover"
             />
