@@ -1,65 +1,275 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const services = [
+  {
+    title: "Estate Jewelry Evaluations",
+    description:
+      "Clear guidance for inherited jewelry, diamonds, gold, watches, and heirlooms.",
+  },
+  {
+    title: "Probate & Attorney Support",
+    description:
+      "Professional estate asset support for executors, attorneys, trustees, and families.",
+  },
+  {
+    title: "Gold & Luxury Watch Reviews",
+    description:
+      "Experienced review of Rolex, luxury watches, gold, and estate valuables.",
+  },
+  {
+    title: "Direct Purchase Options",
+    description:
+      "Transparent direct purchase opportunities for qualifying estate assets.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="bg-[#faf8f2] text-[#1f2421]">
+      <header className="border-b border-[#e8e0d2] bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#b08d3f] text-sm font-semibold text-[#b08d3f]">
+              EVA
+            </div>
+            <div>
+              <p className="font-serif text-xl">Estate Value Advisors</p>
+              <p className="text-sm text-[#5f665f]">St. Louis Estate Guidance</p>
+            </div>
+          </Link>
+
+          <div className="hidden items-center gap-8 text-sm md:flex">
+            <Link href="/about-gary-bill">About Gary</Link>
+            <Link href="/estate-jewelry-evaluations">Services</Link>
+            <Link href="/contact">Contact</Link>
+          </div>
+        </div>
+      </header>
+
+      <section className="relative overflow-hidden bg-[#10271d] text-white">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1800&auto=format&fit=crop"
+            alt="Estate jewelry"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <div className="relative mx-auto grid min-h-[82vh] max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+          <div className="space-y-8">
+            <div className="space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#d7c18a]">
+                Trusted Estate Guidance
+              </p>
+
+              <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-tight md:text-7xl">
+                Estate jewelry and inherited asset evaluations in St. Louis.
+              </h1>
+
+              <p className="max-w-2xl text-lg text-[#e4ece7] md:text-xl">
+                Calm, transparent guidance for families, executors, attorneys,
+                and individuals navigating inherited jewelry, watches, gold,
+                heirlooms, and estate valuables.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="rounded-full bg-[#b08d3f] px-7 py-4 font-semibold text-white transition hover:bg-[#9d7b31]"
+              >
+                Schedule A Consultation
+              </Link>
+
+              <a
+                href="tel:+13146803404"
+                className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white"
+              >
+                Call 314-680-3404
+              </a>
+            </div>
+
+            <div className="grid gap-4 pt-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
+                <p className="text-3xl font-semibold text-[#d7c18a]">40+</p>
+                <p className="mt-2 text-sm text-[#dce6df]">
+                  Years of experience with estate jewelry and valuables.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
+                <p className="text-3xl font-semibold text-[#d7c18a]">Local</p>
+                <p className="mt-2 text-sm text-[#dce6df]">
+                  Trusted St. Louis guidance for families and executors.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur">
+                <p className="text-3xl font-semibold text-[#d7c18a]">Clear</p>
+                <p className="mt-2 text-sm text-[#dce6df]">
+                  Transparent evaluations without pressure or confusion.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-[32px] bg-[#faf8f2] p-8 text-[#1f2421] shadow-2xl">
+            <div className="space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b08d3f]">
+                Meet Gary Bill
+              </p>
+
+              <h2 className="font-serif text-4xl leading-tight">
+                A calm, experienced approach to inherited valuables.
+              </h2>
+
+              <p className="text-[#5f665f]">
+                Gary Bill has spent decades helping St. Louis families evaluate
+                estate jewelry, watches, gold, heirlooms, and personal
+                collections with honesty, patience, and professionalism.
+              </p>
+
+              <div className="overflow-hidden rounded-3xl">
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
+                  alt="Professional estate advisor"
+                  className="h-[320px] w-full object-cover"
+                />
+              </div>
+
+              <div className="space-y-3 text-sm text-[#5f665f]">
+                <p>✓ Estate jewelry and heirloom evaluations</p>
+                <p>✓ Probate and executor support</p>
+                <p>✓ Rolex, luxury watches, and gold guidance</p>
+                <p>✓ Private consultations and transparent process</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="max-w-3xl space-y-5">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#b08d3f]">
+            Estate Services
+          </p>
+
+          <h2 className="font-serif text-5xl leading-tight text-[#10271d]">
+            Trusted support during estate transitions.
+          </h2>
+
+          <p className="text-lg text-[#5f665f]">
+            Families are often left with jewelry boxes, watches, gold,
+            heirlooms, and collections they do not fully understand. Estate
+            Value Advisors helps clients navigate those decisions clearly and
+            professionally.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="rounded-[28px] border border-[#e8e0d2] bg-white p-8 shadow-sm"
+            >
+              <h3 className="font-serif text-2xl text-[#10271d]">
+                {service.title}
+              </h3>
+              <p className="mt-4 text-[#5f665f]">{service.description}</p>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="bg-white py-24">
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
+          <div className="overflow-hidden rounded-[32px]">
+            <img
+              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop"
+              alt="Estate jewelry review"
+              className="h-full min-h-[520px] w-full object-cover"
+            />
+          </div>
+
+          <div className="space-y-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#b08d3f]">
+              Why Families Contact Us
+            </p>
+
+            <h2 className="font-serif text-5xl leading-tight text-[#10271d]">
+              Most people are not looking for a buyer first.
+            </h2>
+
+            <p className="text-lg text-[#5f665f]">
+              They are looking for clarity, reassurance, and someone they can
+              trust. Many clients simply want to understand what they have,
+              what may hold value, and what options make sense for their
+              family.
+            </p>
+
+            <div className="space-y-5 rounded-[28px] border border-[#e8e0d2] bg-[#faf8f2] p-8">
+              <div>
+                <h3 className="font-serif text-2xl">Transparent Process</h3>
+                <p className="mt-2 text-[#5f665f]">
+                  Clear communication and straightforward guidance.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-2xl">Local Experience</h3>
+                <p className="mt-2 text-[#5f665f]">
+                  Decades of St. Louis estate and jewelry experience.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-serif text-2xl">No Pressure</h3>
+                <p className="mt-2 text-[#5f665f]">
+                  Calm conversations focused on helping clients make informed
+                  decisions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-[#e8e0d2] bg-[#10271d] text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-4">
+            <h3 className="font-serif text-2xl">Estate Value Advisors</h3>
+            <p className="text-[#dce6df]">
+              Trusted estate jewelry and inherited asset guidance in St. Louis.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#d7c18a]">Contact</h4>
+            <div className="mt-4 space-y-2 text-[#dce6df]">
+              <p>314-680-3404</p>
+              <p>info@estatevalueadvisors.com</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#d7c18a]">Location</h4>
+            <div className="mt-4 space-y-2 text-[#dce6df]">
+              <p>7805 Olive Blvd</p>
+              <p>St. Louis, Missouri 63130</p>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-[#d7c18a]">Service Areas</h4>
+            <div className="mt-4 space-y-2 text-[#dce6df]">
+              <p>St. Louis</p>
+              <p>Clayton</p>
+              <p>Ladue</p>
+              <p>Creve Coeur</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
