@@ -55,8 +55,8 @@ export default function InheritedJewelryPage() {
 
           <div className="overflow-hidden rounded-[32px] bg-white shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1543295204-8e6d3c4f7bf1?q=80&w=1400&auto=format&fit=crop"
-              alt="Inherited jewelry placeholder"
+              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1400&auto=format&fit=crop"
+              alt="Inherited jewelry"
               className="h-[680px] w-full object-cover"
             />
           </div>
