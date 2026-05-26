@@ -19,7 +19,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://estatevalueadvisors.com/#business",
         "name": "Estate Value Advisors",
         "url": "https://estatevalueadvisors.com/",
@@ -42,7 +42,34 @@
           "Creve Coeur"
         ],
         "description": "Confidential estate jewelry and high-value asset evaluation, probate support, liquidation guidance, and direct purchase services for families, executors, attorneys, and private clients.",
-        "priceRange": "Consultation-based"
+        "priceRange": "Consultation-based",
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=7805+Olive+Blvd+St.+Louis+MO+63130",
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Estate Jewelry Evaluation",
+              "description": "Confidential review and documentation for estate jewelry, gold, watches, heirlooms, and high-value estate assets."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Attorney and Probate Asset Support",
+              "description": "Professional estate asset support for attorneys, executors, trustees, and families handling probate-sensitive matters."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Direct Purchase Services",
+              "description": "Transparent direct purchase options for qualifying jewelry, gold, watches, and estate assets after review."
+            }
+          }
+        ]
       },
       {
         "@type": "WebSite",
@@ -233,12 +260,32 @@
       border: 1px solid rgba(255,255,255,.55);
     }
     .hero-card h2 { font-size: 1.75rem; margin-bottom: 12px; }
-    .hero-card ul { padding-left: 18px; margin: 14px 0 20px; color: var(--muted); }
+    .mini-proof { display: grid; gap: 10px; margin: 18px 0 22px; }
+    .mini-proof span { display: flex; gap: 8px; color: var(--muted); }
+    .mini-proof span:before { content: "✓"; color: var(--gold); font-weight: 900; }
 
     .logos {
       border-bottom: 1px solid var(--line);
       background: var(--cream);
     }
+    .proof-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .proof-bar-grid {
+      padding: 26px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .proof-bar-grid div {
+      padding: 18px;
+      border-left: 3px solid var(--gold);
+      background: #fffaf0;
+      border-radius: 14px;
+    }
+    .proof-bar-grid strong { display: block; color: var(--green); margin-bottom: 4px; }
+    .proof-bar-grid span { color: var(--muted); font-size: .94rem; }
     .logos .wrap {
       padding: 24px 0;
       display: flex;
@@ -311,6 +358,10 @@
     .testimonials .grid-3 { align-items: stretch; }
     .stars { color: var(--gold); letter-spacing: .08em; margin-bottom: 18px; }
 
+    .citation-facts { padding: 34px 0; background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .citation-facts p { max-width: 940px; color: var(--muted); }
+    .citation-facts strong { color: var(--green); }
+
     .faq { background: var(--cream); }
     .faq-list { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
     summary { cursor: pointer; font-weight: 900; color: var(--green); }
@@ -359,6 +410,7 @@
       .hero-card { align-self: auto; }
       .grid-4, .steps { grid-template-columns: repeat(2, 1fr); }
       .grid-3 { grid-template-columns: 1fr; }
+      .proof-bar-grid { grid-template-columns: 1fr; }
       .image-panel { min-height: 420px; }
     }
 
@@ -369,7 +421,7 @@
       .hero { background-position: center; }
       .hero .wrap { padding: 42px 0 92px; }
       h1 { font-size: clamp(2.35rem, 13vw, 4rem); }
-      .trust-strip, .grid-4, .steps, .stats { grid-template-columns: 1fr; }
+      .trust-strip, .grid-4, .steps, .stats, .proof-bar-grid { grid-template-columns: 1fr; }
       .hero-actions .btn { width: 100%; }
       .service-card img { height: 240px; }
       .mobile-cta { display: block; }
@@ -377,7 +429,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
   <div class="topbar">
     <div class="wrap">
       <a href="tel:+13146803404">Call 314-680-3404</a>
@@ -388,7 +440,7 @@
 
   <header class="header">
     <div class="wrap nav" aria-label="Main navigation">
-      <a class="brand" href="/" aria-label="Estate Value Advisors home">
+      <a class="brand" href="#top" aria-label="Estate Value Advisors home">
         <span class="brand-mark">EVA</span>
         <span>Estate Value Advisors</span>
       </a>
@@ -396,7 +448,7 @@
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-dark" href="#contact">Start a Confidential Evaluation</a>
+        <a class="btn btn-dark" href="#contact">Start Your Confidential Evaluation</a>
       </nav>
     </div>
   </header>
@@ -409,26 +461,25 @@
           <h1>Confidential guidance for estate jewelry, watches, gold, and heirlooms.</h1>
           <p class="lead">Estate Value Advisors helps families, executors, attorneys, and private clients evaluate, document, liquidate, or sell high-value estate assets with discretion and fiduciary care.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Request an Evaluation</a>
-            <a class="btn btn-ghost" href="tel:+13146803404">Call 314-680-3404</a>
+            <a class="btn btn-primary" href="#contact">Start Your Confidential Evaluation</a>
+            <a class="btn btn-ghost" href="tel:+13146803404">Speak With an Advisor</a>
           </div>
           <div class="trust-strip" aria-label="Trust highlights">
             <div class="trust-item"><strong>20+ Years</strong><span>Estate asset experience</span></div>
             <div class="trust-item"><strong>Private</strong><span>Discreet consultation process</span></div>
-            <div class="trust-item"><strong>Local</strong><span>Serving the St. Louis area</span></div>
+            <div class="trust-item"><strong>St. Louis</strong><span>Located on Olive Blvd</span></div>
           </div>
         </div>
 
         <aside class="hero-card" aria-label="Evaluation request summary">
           <h2>Not sure where to start?</h2>
           <p class="muted">A sensitive estate decision should not feel rushed. Begin with a private review so you understand your options before selling, distributing, or documenting estate assets.</p>
-          <ul>
-            <li>Estate jewelry and heirloom evaluations</li>
-            <li>Probate and attorney support</li>
-            <li>Direct purchase options for qualifying assets</li>
-            <li>Clear next steps for families and executors</li>
-          </ul>
-          <a class="btn btn-dark" href="#contact">Begin the Conversation</a>
+          <div class="mini-proof" aria-label="Legitimacy signals">
+            <span>Confidential first conversation</span>
+            <span>No-pressure asset review</span>
+            <span>Attorney and executor friendly</span>
+          </div>
+          <a class="btn btn-dark" href="#contact">Start Your Confidential Evaluation</a>
         </aside>
       </div>
     </section>
@@ -440,6 +491,23 @@
         <span>Attorneys</span>
         <span>Trustees</span>
         <span>Private Collectors</span>
+      </div>
+    </section>
+
+    <section class="proof-bar" aria-label="Why clients choose Estate Value Advisors">
+      <div class="wrap proof-bar-grid">
+        <div>
+          <strong>Private by design</strong>
+          <span>Conversations begin discreetly before any sale or next step is discussed.</span>
+        </div>
+        <div>
+          <strong>Built for sensitive matters</strong>
+          <span>Guidance for families, executors, trustees, and attorney-led estate situations.</span>
+        </div>
+        <div>
+          <strong>Clear, local point of contact</strong>
+          <span>Located at 7805 Olive Blvd in St. Louis with direct phone and email access.</span>
+        </div>
       </div>
     </section>
 
@@ -533,7 +601,7 @@
             <div class="stat"><strong>100%</strong><span>Private process</span></div>
             <div class="stat"><strong>Local</strong><span>St. Louis service area</span></div>
           </div>
-          <a class="btn btn-dark" href="#contact">Start a Confidential Evaluation</a>
+          <a class="btn btn-dark" href="#contact">Start Your Confidential Evaluation</a>
         </div>
       </div>
     </section>
@@ -585,6 +653,12 @@
             <p class="muted">“A discreet and respectful experience during a sensitive family decision.”</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="citation-facts" aria-label="Citation-ready business facts">
+      <div class="wrap">
+        <p><strong>Estate Value Advisors</strong> is a St. Louis estate jewelry and asset advisory business located at 7805 Olive Blvd, St. Louis, MO 63130. The business provides confidential estate jewelry evaluations, probate asset support, direct purchase services, and high-value estate asset guidance for families, executors, trustees, attorneys, and private clients.</p>
       </div>
     </section>
 
@@ -651,7 +725,7 @@
   </footer>
 
   <div class="mobile-cta" aria-label="Mobile contact button">
-    <a class="btn btn-primary" href="tel:+13146803404">Call for Confidential Evaluation</a>
+    <a class="btn btn-primary" href="#contact">Start Your Confidential Evaluation</a>
   </div>
 </body>
 </html>
