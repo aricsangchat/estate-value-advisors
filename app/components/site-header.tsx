@@ -17,11 +17,13 @@ const serviceLinks = [
   { href: "/sell-estate-jewelry-st-louis", label: "Sell Estate Jewelry" },
   { href: "/rolex-buyer-st-louis", label: "Rolex Watches" },
   { href: "/gold-buyer-st-louis", label: "Gold Evaluations" },
+  { href: "/inherited-rolex", label: "Inherited Rolex" },
   { href: "/what-to-do-with-inherited-jewelry", label: "Inherited Jewelry Guide" },
 ];
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#e8e0d2] bg-white/95 backdrop-blur">
@@ -37,6 +39,43 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm text-[#1f2421] lg:flex">
+          <div
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setIsServicesOpen((current) => !current)}
+              className="whitespace-nowrap transition hover:text-[#b08d3f]"
+              aria-expanded={isServicesOpen}
+            >
+              Services
+            </button>
+
+            {isServicesOpen && (
+              <div className="absolute left-0 top-full w-[360px] pt-4">
+                <div className="rounded-[28px] border border-[#e8e0d2] bg-white p-4 shadow-2xl">
+                  <p className="px-3 pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#b08d3f]">
+                    Popular Searches
+                  </p>
+                  <div className="grid gap-1">
+                    {serviceLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsServicesOpen(false)}
+                        className="rounded-2xl px-3 py-3 text-[#10271d] transition hover:bg-[#faf8f2] hover:text-[#b08d3f]"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {mainNavItems.map((item) => (
             <Link key={item.href} href={item.href} className="whitespace-nowrap transition hover:text-[#b08d3f]">
               {item.label}
