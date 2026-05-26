@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "./components/site-header";
 import { SiteFooter } from "./components/site-footer";
+import { StructuredData } from "./components/structured-data";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
     "inherited jewelry",
     "rolex buyer st louis",
     "estate gold buyer",
+    "jewelry appraisal st louis",
+    "sell estate jewelry st louis",
   ],
   openGraph: {
     title: "Estate Value Advisors",
@@ -47,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={geist.className}>
+        <StructuredData />
         <SiteHeader />
         {children}
         <SiteFooter />
