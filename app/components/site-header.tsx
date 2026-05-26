@@ -3,8 +3,10 @@ import Link from "next/link";
 const navItems = [
   { href: "/about-gary-bill", label: "About Gary" },
   { href: "/estate-jewelry-evaluations", label: "Evaluations" },
+  { href: "/estate-jewelry-st-louis", label: "St. Louis" },
   { href: "/probate-estate-support", label: "Probate Support" },
   { href: "/inherited-jewelry", label: "Inherited Jewelry" },
+  { href: "/blog", label: "Articles" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -22,7 +24,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm text-[#1f2421] lg:flex">
+        <nav className="hidden items-center gap-6 text-sm text-[#1f2421] xl:flex">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="transition hover:text-[#b08d3f]">
               {item.label}
