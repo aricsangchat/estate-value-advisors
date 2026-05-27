@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { LocalMapSection } from "./components/local-map-section";
+import { ReviewsSection } from "./components/reviews-section";
 
 const services = [
   {
@@ -213,6 +215,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ReviewsSection />
+      <LocalMapSection />
     </main>
   );
 }
