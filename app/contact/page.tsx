@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocalMapSection } from "../components/local-map-section";
 
 export const metadata: Metadata = {
   title: "Contact Estate Value Advisors",
@@ -76,6 +77,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <LocalMapSection />
     </main>
   );
 }
