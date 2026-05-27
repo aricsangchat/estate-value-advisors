@@ -12,11 +12,20 @@ const mainNavItems = [
 ];
 
 const serviceLinks = [
+  { href: "/sell-jewelry-st-louis", label: "Sell Jewelry St. Louis" },
+  { href: "/sell-gold-st-louis", label: "Sell Gold St. Louis" },
+  { href: "/cash-for-jewelry-st-louis", label: "Cash For Jewelry" },
+  { href: "/sell-rolex-st-louis", label: "Sell Rolex" },
+  { href: "/diamond-buyer-st-louis", label: "Diamond Buyer" },
+  { href: "/estate-gold-buyer-st-louis", label: "Estate Gold Buyer" },
+  { href: "/antique-jewelry-buyer-st-louis", label: "Antique Jewelry Buyer" },
+  { href: "/sell-inherited-jewelry", label: "Inherited Jewelry" },
+  { href: "/where-to-sell-estate-jewelry", label: "Where To Sell Estate Jewelry" },
+  { href: "/best-place-to-sell-rolex-st-louis", label: "Best Place To Sell Rolex" },
   { href: "/estate-jewelry-st-louis", label: "Estate Jewelry St. Louis" },
   { href: "/jewelry-appraisal-st-louis", label: "Jewelry Appraisal" },
-  { href: "/sell-estate-jewelry-st-louis", label: "Sell Estate Jewelry" },
-  { href: "/rolex-buyer-st-louis", label: "Rolex Watches" },
-  { href: "/gold-buyer-st-louis", label: "Gold Evaluations" },
+  { href: "/rolex-buyer-st-louis", label: "Rolex Buyer" },
+  { href: "/gold-buyer-st-louis", label: "Gold Buyer" },
   { href: "/inherited-rolex", label: "Inherited Rolex" },
   { href: "/what-to-do-with-inherited-jewelry", label: "Inherited Jewelry Guide" },
 ];
@@ -54,12 +63,12 @@ export function SiteHeader() {
             </button>
 
             {isServicesOpen && (
-              <div className="absolute left-0 top-full w-[360px] pt-4">
+              <div className="absolute left-0 top-full w-[520px] pt-4">
                 <div className="rounded-[28px] border border-[#e8e0d2] bg-white p-4 shadow-2xl">
                   <p className="px-3 pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#b08d3f]">
                     Popular Searches
                   </p>
-                  <div className="grid gap-1">
+                  <div className="grid grid-cols-2 gap-1">
                     {serviceLinks.map((item) => (
                       <Link
                         key={item.href}
